@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Primary",
+          "slug": "primary",
+          "color": "#0073aa"
+        }
+      ]
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "Small",
+          "slug": "small",
+          "size": "12px"
+        }
+      ]
+    },
+    "widgets": {
+      "enableLegacyWidgetBlockEditor": true
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#ffffff"
+    }
+  },
+  "templates": {
+    "index": "Index",
+    "page": "Page",
+    "single": "Single",
+    "template-home": "templates/template-home.html"
+  }
+}
