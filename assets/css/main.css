@@ -47,3 +47,11 @@ Theme Style Sheet
 }
 
 /* TopBar */
+
+/* Header */
+.yp__header{
+    font-family: "Heebo", sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    gap: 30px;
+}

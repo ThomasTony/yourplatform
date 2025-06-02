@@ -17,8 +17,19 @@ body{
   gap: 10px !important;
 }
 
+.gap-20{
+    gap: 20px !important;
+}
+
 .gap-30 {
   gap: 30px !important;
 }
 
+ul{
+    margin: 0;
+    padding: 0;
+}
 
+li{
+    list-style-type: none;
+}
