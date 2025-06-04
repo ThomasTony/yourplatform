@@ -7,25 +7,70 @@
           "name": "Primary",
           "slug": "primary",
           "color": "#0073aa"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "#000000"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#ffffff"
         }
-      ]
+      ],
+      "background": true,
+      "text": true
     },
     "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Poppins', sans-serif",
+          "slug": "poppins",
+          "name": "Poppins"
+        },
+        {
+          "fontFamily": "'Heebo', sans-serif",
+          "slug": "heebo",
+          "name": "Heebo"
+        }
+      ],
       "fontSizes": [
         {
-          "name": "Small",
           "slug": "small",
-          "size": "12px"
+          "size": "12px",
+          "name": "Small"
+        },
+        {
+          "slug": "medium",
+          "size": "16px",
+          "name": "Medium"
+        },
+        {
+          "slug": "large",
+          "size": "24px",
+          "name": "Large"
         }
-      ]
+      ],
+      "lineHeight": true
     },
-    "widgets": {
-      "enableLegacyWidgetBlockEditor": true
+    "spacing": {
+      "units": [ "px", "em", "rem", "%" ],
+      "spacingScale": {
+        "steps": 10,
+        "unit": "px"
+      }
     }
   },
   "styles": {
     "color": {
-      "background": "#ffffff"
+      "background": "#ffffff",
+      "text": "#000000"
+    },
+    "typography": {
+      "fontFamily": "poppins",
+      "fontWeight": "500",
+      "fontStyle": "normal"
     }
   },
   "templates": {
