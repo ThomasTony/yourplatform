@@ -4,32 +4,16 @@ Author: Thomas - Freelancer
 Version: 1.0
 Requires at least: 5.9
 */
+/* Fonts - fallback if needed */
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Poppins:wght@100..900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Utility Classes */
+.gap-10 { gap: 10px !important; }
+.gap-20 { gap: 20px !important; }
+.gap-30 { gap: 30px !important; }
+.gap-40 { gap: 40px !important; }
 
-body{
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
+/* Base Reset */
+ul { margin: 0; padding: 0; }
+li { list-style-type: none; }
 
-.gap-10 {
-  gap: 10px !important;
-}
-
-.gap-20{
-    gap: 20px !important;
-}
-
-.gap-30 {
-  gap: 30px !important;
-}
-
-ul{
-    margin: 0;
-    padding: 0;
-}
-
-li{
-    list-style-type: none;
-}
