@@ -7,6 +7,25 @@ Requires at least: 5.9
 /* Fonts - fallback if needed */
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Poppins:wght@100..900&display=swap');
 
+:root {
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Heebo', sans-serif;
+
+    --primary-color: #886ac3;
+    --primary-color-semi: rgba(136, 106, 195, 0.5);
+    --gradient-start: #591998;
+    --gradient-end: #981e8d;
+
+    --light-bg-color: #f3f5f6;
+    --light-text-color: #000;
+    --light-post-content-bg: #fff;
+
+    --dark-bg-color: #191919;
+    --dark-text-color: #fff;
+    --dark-post-content-bg: #232323;
+}
+
+
 /* Utility Classes */
 .gap-10 { gap: 10px !important; }
 .gap-20 { gap: 20px !important; }
@@ -17,8 +36,25 @@ Requires at least: 5.9
 ul { margin: 0; padding: 0; }
 li { list-style-type: none; }
 
-.section-paading{
-    padding: 80px 0;
+a{
+    text-decoration: none !important;
 }
 
-
+.button{
+    position: relative;
+    z-index: 9;
+    display: inline-block;
+    padding: 0 30px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 11px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 42px;
+    text-transform: uppercase;
+    text-align: center;
+    transition: 0.4s;
+}
