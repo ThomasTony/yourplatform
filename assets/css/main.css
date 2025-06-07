@@ -416,3 +416,22 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
     font-size: 0.75rem;
     opacity: 0.5;
   }
+
+/*------------------------------
+  Popular Destinations
+------------------------------*/
+  
+  .popular_destination_section{
+      background: var(--light-bg-color);
+  }
+
+  .popular-destinations .wp-block-column{
+      height: 180px;
+  width: 280px;
+  background: rgb(54, 52, 54);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  }
