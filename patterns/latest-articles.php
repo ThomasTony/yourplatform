@@ -25,6 +25,7 @@
 
     .post_list_container article .featured-img a img{
         width: 75%;
+        height: 300px;
         object-fit: cover;
     }
 
@@ -34,7 +35,7 @@
         bottom: -20%;
         width: 50%;
         background: #fff;
-        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.03)    ;
+        box-shadow: 5px 5px 20px rgb(0 0 0 / 7%);
         padding: 22px 20px 30px;
     }
 
