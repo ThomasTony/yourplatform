@@ -44,6 +44,7 @@ class ThemeSetup {
         // Register navigation menu
         register_nav_menus(array(
             'primary' => __('Primary Menu', 'yourplatform'),
+            'popular_category' => __('Popular Category', 'yourplatform'),
         ));
 
         // Add support for editor styles
