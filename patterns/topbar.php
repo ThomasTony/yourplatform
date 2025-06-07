@@ -23,7 +23,7 @@ if ($topBar_content) {
             foreach($social_links as $k => $links){
         ?>
             <li class="list-unstyled">
-                <a class="nav-link <?php echo $k; ?> d-flex align-items-center gap-10" href="<?php echo $links; ?>">
+                <a class="nav-link <?php echo $k; ?> d-flex align-items-center gap-10" href="<?php echo $links; ?>" target="_blank">
                   <?php echo ucfirst($k); ?>
                 </a>
             </li>
