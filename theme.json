@@ -77,6 +77,20 @@
     "index": "Index",
     "page": "Page",
     "single": "Single",
+    "category": "templates/category.html",
     "template-home": "templates/template-home.html"
+  },
+  "templateParts": [
+  {
+    "name": "hero",
+    "title": "Hero Section",
+    "area": "uncategorized"
+  },
+  {
+    "name": "breadcrumb",
+    "title": "Breadcrumb",
+    "area": "uncategorized"
   }
+]
+
 }

@@ -24,6 +24,9 @@ class ThemeSetup {
 
         // Hook to remove duplicate submenu in admin menu
         add_action('admin_head', [$this, 'remove_duplicate_submenu']);
+
+        // Register shortcodes on init
+        // add_action('init', [$this, 'register_shortcodes']);
     }
 
     public function boot_carbon_fields() {
@@ -40,6 +43,9 @@ class ThemeSetup {
 
         // Enable support for post thumbnails
         add_theme_support('post-thumbnails');
+
+        // Enable support Block Patterns
+        add_theme_support('block-patterns');
 
         // Register navigation menu
         register_nav_menus(array(
@@ -59,5 +65,16 @@ class ThemeSetup {
             unset($submenu['theme-options'][0]);
         }
     }
+
+    // public function register_shortcodes() {
+    //     add_shortcode('yourplatform_breadcrumb', [$this, 'breadcrumb_shortcode']);
+    // }
+
+    // public function breadcrumb_shortcode($atts) {
+    //     ob_start();
+    //     get_template_part('template-parts/breadcrumb');
+    //     return ob_get_clean();
+    // }
+
 }
 
