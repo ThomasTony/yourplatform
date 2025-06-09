@@ -6,7 +6,7 @@ class ThemeAssets {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_assets'));
     }
 
-    public static function get_instance() {
+    public static function instance() {
         if (self::$instance === null) {
             self::$instance = new self();
         }

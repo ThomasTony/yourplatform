@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 
-    var swiper = new Swiper(".hero-swiper", {
-        direction: "vertical",
+    var heroSwiper = new Swiper(".hero-swiper", {
+        // direction: "vertical",
         loop:true,
         autoplay: {
             delay: 5000,
@@ -10,6 +10,17 @@ jQuery(document).ready(function ($) {
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
+        },
+    });
+
+
+    var popularDestinationSwiper = new Swiper(".popular-destination-swiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop:true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
         },
     });
 

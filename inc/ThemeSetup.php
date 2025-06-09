@@ -22,9 +22,6 @@ class ThemeSetup {
         // Hook to set up theme features
         add_action('after_setup_theme', [$this, 'setup_theme']);
 
-        // Hook to remove duplicate submenu in admin menu
-        add_action('admin_head', [$this, 'remove_duplicate_submenu']);
-
         // Register shortcodes on init
         // add_action('init', [$this, 'register_shortcodes']);
     }
@@ -56,14 +53,6 @@ class ThemeSetup {
         // Add support for editor styles
         add_theme_support('editor-styles');
         add_editor_style('/assets/vendor/bootstrap/css/bootstrap.min.css');
-    }
-
-    public function remove_duplicate_submenu() {
-        global $submenu;
-        if (isset($submenu['theme-options'])) {
-            // Remove first submenu item duplicating the parent menu
-            unset($submenu['theme-options'][0]);
-        }
     }
 
     // public function register_shortcodes() {

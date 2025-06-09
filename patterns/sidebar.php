@@ -7,6 +7,9 @@
 
  $social_links = ThemeOptions::get_social_links();
 
+$get_sidebar_widgets_info = ThemeOptions::get_sidebar_widgets_info();
+// echo "<pre>"; print_r($get_sidebar_widgets_info); exit;
+
 ?>
 <!-- wp:group {"className":"sidebar","layout":{"type":"default"}} -->
 <div class="wp-block-group d-flex flex-column flex-nowrap gap-30">
@@ -15,24 +18,28 @@
   <div class="wp-block-group">
     <!-- wp:image {"width":280,"sizeSlug":"full","linkDestination":"none"} -->
     <figure class="wp-block-image size-full is-resized">
-      <img src="http://localhost/works/yourplatform/wp-content/uploads/2025/06/train.png" alt="kiko" width="280"/>
+      <img src="<?php echo esc_url($get_sidebar_widgets_info['row1']['image']); ?>" alt="kiko" width="280"/>
     </figure>
     <!-- /wp:image -->
 
     <!-- wp:heading {"level":6,"className":"subheading"} -->
-    <h6 class="subheading">India’s First In-Train Magazine.</h6>
+    <h6 class="subheading"><?php echo esc_html($get_sidebar_widgets_info['row1']['title']); ?></h6>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph -->
-    <p>India’s first in-train magazine offers travelers engaging content like travel tips, destination highlights, and entertainment, making the journey more enjoyable and informative.</p>
+    <p><?php echo esc_html($get_sidebar_widgets_info['row1']['description']); ?></p>
     <!-- /wp:paragraph -->
   </div>
   <!-- /wp:group -->
 
   <!-- wp:group {"layout":{"type":"constrained"}} -->
   <div class="wp-block-group">
-    <!-- wp:image {"linkDestination":"custom","href":"https://1.envato.market/4jo01"} -->
-    <figure class="wp-block-image"><a href="https://1.envato.market/4jo01"><img src="https://demo.loftocean.com/eaven-travel/wp-content/uploads/sites/41/2019/10/ad-square-2-300x201.jpg" alt="ad-square-2"/></a></figure>
+    <!-- wp:image {"linkDestination":"custom","href":"<?php echo esc_url($get_sidebar_widgets_info['row2']['url']); ?>"} -->
+    <figure class="wp-block-image side_bar_ad_image_1">
+      <a href="<?php echo esc_url($get_sidebar_widgets_info['row2']['url']); ?>">
+        <img src="<?php echo esc_url($get_sidebar_widgets_info['row2']['image']); ?>" alt="ad-square-2" height="200"/>
+      </a>
+    </figure>
     <!-- /wp:image -->
   </div>
   <!-- /wp:group -->
@@ -40,7 +47,7 @@
   <!-- wp:group {"layout":{"type":"constrained"}} -->
   <div class="wp-block-group d-flex flex-column flex-nowrap gap-30">
     <!-- wp:heading {"level":5} -->
-    <h5 class="m-0 sidebar_sec_title">Follow Us</h5>
+    <h5 class="m-0 sidebar_sec_title"><?php echo esc_html($get_sidebar_widgets_info['row3']['title']); ?></h5>
     <!-- /wp:heading -->
 
     <!-- wp:social-links {"iconColor":"primary","iconColorValue":"#000000","layout":{"type":"flex","justifyContent":"left"}} -->
@@ -58,79 +65,136 @@
     <!-- /wp:social-links -->
   </div>
   <!-- /wp:group -->
+  
+  <!-- Popular Categories -->
+  <?php
+  if (
+      !empty($get_sidebar_widgets_info['row4']['categories']) &&
+      is_array($get_sidebar_widgets_info['row4']['categories'])
+  ) {
+      $category_id = $get_sidebar_widgets_info['row4']['categories'][0]['id'];
 
+      if (!empty($category_id)) {
+          $term = get_term_by('id', $category_id, 'category');
+
+          if ($term && !is_wp_error($term)) {
+              $section_title = esc_html($get_sidebar_widgets_info['row4']['title']);
+              ?>
+
+              <!-- Sidebar: Popular Posts from Selected Category -->
+              <div class="wp-block-group d-flex flex-column flex-nowrap gap-30 align-items-start most_popular">
+                  <h5 class="m-0 sidebar_sec_title wp-block-heading"><?php echo $section_title; ?></h5>
+
+                  <div class="most_popular_post w-100">
+                      <?php
+                      $query = new WP_Query([
+                          'post_type'      => 'post',
+                          'posts_per_page' => 3,
+                          'post_status'    => 'publish',
+                          'orderby'        => 'date',
+                          'order'          => 'DESC',
+                          'cat'            => $category_id,
+                      ]);
+
+                      if ($query->have_posts()) :
+                          while ($query->have_posts()) : $query->the_post(); ?>
+                              <div class="post-card d-flex flex-column align-items-start mb-3">
+                                  <a href="<?php the_permalink(); ?>">
+                                      <?php if (has_post_thumbnail()) : ?>
+                                          <?php the_post_thumbnail('medium', ['style' => 'width: 100%; height: auto;']); ?>
+                                      <?php endif; ?>
+                                      <h6 class="mt-2"><?php the_title(); ?></h6>
+                                      <small><?php echo get_the_date(); ?></small>
+                                  </a>
+                              </div>
+                          <?php endwhile;
+                          wp_reset_postdata();
+                      else :
+                          echo '<p>No posts found in this category.</p>';
+                      endif;
+                      ?>
+                  </div>
+              </div>
+
+              <?php
+          }
+      }
+  }
+  ?>
+
+
+  <!-- Hot Destinations -->
+  <?php
+  if (
+      !empty($get_sidebar_widgets_info['row5']['categories']) &&
+      is_array($get_sidebar_widgets_info['row5']['categories'])
+  ) {
+      $category_id = $get_sidebar_widgets_info['row5']['categories'][0]['id'];
+
+      if (!empty($category_id)) {
+          $term = get_term_by('id', $category_id, 'category');
+
+          if ($term && !is_wp_error($term)) {
+              $section_title = esc_html($get_sidebar_widgets_info['row5']['title']);
+              ?>
+
+              <!-- Sidebar: Popular Posts from Selected Category -->
+              <div class="wp-block-group d-flex flex-column flex-nowrap gap-30 align-items-start most_popular">
+                  <h5 class="m-0 sidebar_sec_title wp-block-heading"><?php echo $section_title; ?></h5>
+
+                  <div class="most_popular_post w-100">
+                      <?php
+                      $query = new WP_Query([
+                          'post_type'      => 'post',
+                          'posts_per_page' => 3,
+                          'post_status'    => 'publish',
+                          'orderby'        => 'date',
+                          'order'          => 'DESC',
+                          'cat'            => $category_id,
+                      ]);
+
+                      if ($query->have_posts()) :
+                          while ($query->have_posts()) : $query->the_post(); ?>
+                              <div class="post-card d-flex flex-column align-items-start mb-3">
+                                  <a class="w-100" href="<?php the_permalink(); ?>">
+                                      <?php if (has_post_thumbnail()) : ?>
+                                          <?php the_post_thumbnail('medium', ['style' => 'width: 100%; height: 200px; object-fit: cover']); ?>
+                                      <?php endif; ?>
+                                      <h6 class="mt-2"><?php the_title(); ?></h6>
+                                      <small><?php echo get_the_date(); ?></small>
+                                  </a>
+                              </div>
+                          <?php endwhile;
+                          wp_reset_postdata();
+                      else :
+                          echo '<p>No posts found in this category.</p>';
+                      endif;
+                      ?>
+                  </div>
+              </div>
+
+              <?php
+          }
+      }
+  }
+  ?>
+
+  <!-- News Letter Form -->
   <!-- wp:group {"layout":{"type":"constrained"}} -->
-  <div class="wp-block-group d-flex flex-column flex-nowrap gap-30 align-items-start most_popular">
+  <div class="wp-block-group d-flex flex-column flex-nowrap gap-30 sidebar_newsletter">
     <!-- wp:heading {"level":5} -->
-    <h5 class="m-0 sidebar_sec_title">Most Popular</h5>
-    <!-- /wp:heading -->
-
-    <!-- wp:query {"query":{"perPage":3,"orderBy":"date","order":"desc"},"displayLayout":{"type":"list"}} -->
-    <div class="wp-block-query m-0 most_popular_post">
-      <!-- wp:post-template -->
-        <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-        <div class="wp-block-group d-flex flex-column flex-nowrap align-items-start">
-          <!-- wp:post-featured-image {"isLink":true,"width":"100%", "height":"280px"} /-->
-          <!-- wp:group -->
-          <div class="wp-block-group d-flex flex-column flex-nowrap gap-1">
-            <!-- wp:post-terms {"term":"category"} /-->
-            <!-- wp:post-title {"isLink":true} /-->
-            <!-- wp:post-date /-->
-          </div>
-          <!-- /wp:group -->
-        </div>
-        <!-- /wp:group -->
-      <!-- /wp:post-template -->
-    </div>
-    <!-- /wp:query -->
-  </div>
-  <!-- /wp:group -->
-
-  <!-- wp:group {"layout":{"type":"constrained"}} -->
-  <div class="wp-block-group  d-flex flex-column flex-nowrap gap-30">
-  <!-- wp:heading {"level":5} -->
-  <h5 class="m-0 sidebar_sec_title">Hot Destinations</h5>
-  <!-- /wp:heading -->
-  <!-- wp:query {"query":{"perPage":3,"orderBy":"date","order":"desc"},"displayLayout":{"type":"list"}} -->
-    <div class="wp-block-query m-0 most_popular_post">
-      <!-- wp:post-template -->
-        <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-        <div class="wp-block-group d-flex flex-column flex-nowrap align-items-start">
-          <!-- wp:post-featured-image {"isLink":true,"width":"100%", "height":"280px"} /-->
-          <!-- wp:group -->
-          <div class="wp-block-group d-flex flex-column flex-nowrap gap-1">
-            <!-- wp:post-terms {"term":"category"} /-->
-            <!-- wp:post-title {"isLink":true} /-->
-            <!-- wp:post-date /-->
-          </div>
-          <!-- /wp:group -->
-        </div>
-        <!-- /wp:group -->
-      <!-- /wp:post-template -->
-    </div>
-    <!-- /wp:query -->
-  </div>
-  <!-- /wp:group -->
-
-  <!-- wp:group {"layout":{"type":"constrained"}} -->
-  <div class="wp-block-group d-flex flex-column flex-nowrap gap-30 ">
-    <!-- wp:heading {"level":5} -->
-    <h5 class="m-0 sidebar_sec_title">Newsletter</h5>
+    <h5 class="m-0 sidebar_sec_title"><?php echo esc_html($get_sidebar_widgets_info['row6']['title']); ?></h5>
     <!-- /wp:heading -->
 
     <!-- wp:html -->
-    <form class="mc4wp-form" method="post">
-      <p>Sign up to the weekly travel newsletter for the latest posts, city guides, and the useful travel tips and secrets.</p>
-      <div class="fields-container">
-        <input type="email" name="EMAIL" placeholder="Your Email" required>
-        <input type="submit" value="Subscribe">
-      </div>
-      <p>
-        <label>
-          <input name="AGREE_TO_TERMS" type="checkbox" value="1" required> <a href="#" target="_blank">I have read and agree to the terms &amp; conditions</a>
-        </label>
-      </p>
-    </form>
+    <p><?php echo esc_html($get_sidebar_widgets_info['row6']['description']); ?></p>
+    
+    <?php
+    if (!empty($get_sidebar_widgets_info['row6']['contact_form']) && is_array($get_sidebar_widgets_info['row6']['contact_form'])) {
+        $form_id = $get_sidebar_widgets_info['row6']['contact_form'][0]['id'];
+        echo do_shortcode('[contact-form-7 id="' . intval($form_id) . '"]');
+    }
+    ?>
     <!-- /wp:html -->
   </div>
   <!-- /wp:group -->
