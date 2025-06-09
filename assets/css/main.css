@@ -3,7 +3,22 @@
   Common Styles
 ------------------------------*/
 
-.section-paading{ padding: 80px 0 !important; }
+.section-padding, .py-80{ padding-top: 80px !important; padding-bottom: 80px !important; }
+.py-100{ padding-top: 100px !important; padding-bottom: 100px !important;}
+
+.post-title {
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.3;
+}
+
+.page-title, .post-title {
+    word-break: break-word;
+}
+
+h1, h2, h3, h4, h5, h6, blockquote, .post-title, .site-branding .site-title, .slider-title, .promo-blocks .promo-block .promo-block-text, .wp-block-cover, .wp-block-cover-image {
+    font-family: var(--heading-font);
+}
 
 /*------------------------------
   TopBar
@@ -460,4 +475,128 @@ h5.footer_col_title{
 
 ul.footer_nav_menu  li a{
   opacity: .75;
+}
+
+/*------------------------------
+  Breadcrumbs
+------------------------------*/
+
+.breadcrumb ul li{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.breadcrumb ul li:not(:last-child) a::after {
+  content: " >> ";
+  display: inline-block;
+  font-weight: 700;
+  font-size: 12px;
+  color: #000;
+  font-family: var(--body-font);
+  margin-left: 10px;
+}
+
+/*------------------------------
+  Siingle Page / Post Page
+------------------------------*/
+
+.post-content-single, .page-content{
+    position: relative;
+    /* margin-top: -110px; */
+    margin-top: -35vh;
+    background: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    z-index: 9;
+}
+
+
+.single-page-hero-section {
+	position: relative;
+	min-height: 100vh; /* or desired height */
+	overflow: hidden;
+}
+
+.single-page-hero-overlay {
+	position: relative;
+	z-index: 2;
+	color: white; /* Adjust for visibility */
+	padding: 100px 20px;
+	text-align: center;
+}
+
+.hero-single-page-image{
+  background: url('http://localhost/works/yourplatform/wp-content/uploads/2025/06/slide-3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* for parallax effect */
+  position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 80vh;
+	z-index: 1;
+}
+
+.hero-single-page-image::after{
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: rgb(28 26 26 / 57%);
+}
+
+h1.single-page-hero-title{
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.3;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.single-page-hero-overlay .taxonomy-category a{
+    background: #fff;
+    padding: 2px 15px;
+    margin: 3px;
+    border-radius: 99px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: capitalize;
+}
+
+.single-page-hero-overlay .wp-block-post-terms__separator{
+  display: none;
+}
+
+/*------------------------------
+  Category Listing Page 
+------------------------------*/
+
+.category-archive .wp-block-query {
+  margin-top: 2rem;
+}
+
+.category-archive .post-card {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 30px;
+}
+
+.category-archive .post-card img {
+  border-radius: 4px;
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
 }

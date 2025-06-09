@@ -1,5 +1,5 @@
 /*
-Theme Name: YourPlatform-V1
+Theme Name: YourPlatform
 Author: Thomas - Freelancer
 Version: 1.0
 Requires at least: 5.9
@@ -33,6 +33,15 @@ Requires at least: 5.9
 .gap-40 { gap: 40px !important; }
 
 /* Base Reset */
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    word-wrap: break-word;
+}
+
 ul { margin: 0; padding: 0; }
 li { list-style-type: none; }
 
