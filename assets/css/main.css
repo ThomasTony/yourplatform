@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6, blockquote, .post-title, .site-branding .site-title, .sl
     font-family: var(--heading-font);
 }
 
+.img-mx-w-50{
+  max-width: 50% !important;
+}
+
 /*------------------------------
   TopBar
 ------------------------------*/
@@ -197,6 +201,14 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 5px 5px 20px rgb(57 57 58 / 25%);
+}
+
+.interested_stories_section_block_column .image-caption-wrapper a{
+      position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
 }
 
 .interested_stories_section_block_column .image-caption-wrapper .image_caption{
@@ -477,12 +489,17 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
     /* height: auto; */
     display: block;
     border-radius: 8px;
+    object-fit: cover;
   }
   .category-card {
     padding: 10px;
     background: #fff;
     border: 1px solid #eee;
     border-radius: 8px;
+  }
+
+  .popular-destinations.container.swiper-container.popular-destination-swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden{
+    overflow: hidden;
   }
 
 /*------------------------------

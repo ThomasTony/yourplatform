@@ -41,9 +41,93 @@ class ThemeOptions {
         // Add second options page under 'General Setting'
         Container::make('theme_options', __('General Setting'))
             ->set_page_parent('theme-options') 
-            ->add_tab(__('Contact'), [
-                Field::make('text', 'yp_contact_email', __('Contact Email')),
-                Field::make('text', 'yp_contact_phone', __('Contact Phone')),
+
+            // Contact
+            ->add_tab(__('General'), [
+                Field::make('text', 'yp_primary_email', __('Primary Email')),
+                Field::make('text', 'yp_primary_phone', __('Primary Phone')),
+                Field::make('textarea', 'yp_primary_location', __('Primary Location')),
+                Field::make('text', 'yp_primary_map_location', __('Google Map Link')),
+            ])
+
+            // Header
+            ->add_tab(__('Header'), [
+                Field::make('select', 'yp_header_menu', __('Header Menu'))
+                ->set_required(true)
+                ->add_options(function() {
+                    $menus = wp_get_nav_menus();
+
+                    $options = [
+                        '' => __('Select Menu') 
+                    ];
+
+                    foreach ($menus as $menu) {
+                        $options[$menu->term_id] = $menu->name;
+                    }
+
+                    return !empty($options) ? $options : [0 => __('No menus found')];
+                }),
+            ])
+
+            // Footer
+            ->add_tab(__('Footer'), [
+                // Column 1
+                Field::make('separator', 'crb_footer_col1_sep', 'Column 1'),
+                Field::make('text', 'yp_footer_col1_title', __('Title')),
+                Field::make('image', 'yp_footer_col1_image', __('Image')),
+
+                // Column 2
+                Field::make('separator', 'crb_footer_col2_sep', 'Column 2'),
+                Field::make('text', 'yp_footer_col2_title', __('Title')), 
+                Field::make('select', 'yp_footer_col2_menu', __('Menu')) 
+                    ->set_required(true)
+                    ->add_options(function () {
+                        $menus = wp_get_nav_menus();
+
+                        $options = [
+                            '' => __('Select Menu') 
+                        ];
+
+                        foreach ($menus as $menu) {
+                            $options[$menu->term_id] = $menu->name;
+                        }
+
+                        return !empty($options) ? $options : [0 => __('No menus found')];
+                }),
+
+                // Column 3
+                Field::make('separator', 'crb_footer_col_3_sep', 'Column 3'),
+                Field::make('text', 'yp_footer_col_3_title', __('Title')), 
+                Field::make('select', 'yp_footer_col_3_menu', __('Menu')) 
+                    ->set_required(true)
+                    ->add_options(function () {
+                        $menus = wp_get_nav_menus();
+
+                        $options = [
+                            '' => __('Select Menu') 
+                        ];
+
+                        foreach ($menus as $menu) {
+                            $options[$menu->term_id] = $menu->name;
+                        }
+
+                        return !empty($options) ? $options : [0 => __('No menus found')];
+                }),
+
+                // Column 4
+                Field::make('separator', 'yp_footer_col_4_sep', 'Column 4'),
+                Field::make('text', 'yp_footer_col_4_title', __('Title')), 
+                Field::make( 'complex', 'yp_footer_col_4_contact_info', 'Contact info' )
+                    ->add_fields( array(
+                        Field::make( 'text', 'name' ),
+                        Field::make( 'text', 'email' ),
+                        Field::make( 'text', 'phone' ),
+                ) ),
+
+                // Copyrights
+                Field::make('separator', 'yp_footer_copyrights_sep', 'Copyrights'),
+                Field::make('text', 'yp_copy_rights', __('Copyrights')),
+
             ]);
         
         // Add second options page under 'General Setting'
@@ -109,6 +193,7 @@ class ThemeOptions {
         ]);
     }
 
+
     public static function get_social_links() {
         
         $field_list = ['facebook', 'instagram', 'x', 'youtube', 'linkedin'];
@@ -166,6 +251,69 @@ class ThemeOptions {
 
         return $data;
     }
+
+    public static function get_general_settings() {
+
+        $general_settings = [
+            'email'       => carbon_get_theme_option('yp_primary_email'),
+            'phone'       => carbon_get_theme_option('yp_primary_phone'),
+            'location'    => carbon_get_theme_option('yp_primary_location'),
+            'map_link'    => carbon_get_theme_option('yp_primary_map_location'),
+        ];
+
+        return $general_settings;
+    }
+
+    public static function get_header_menu() {
+
+        $menu_id = carbon_get_theme_option('yp_header_menu');
+
+        if (!$menu_id) {
+            return false; // No menu selected
+        }
+
+        $menu = wp_get_nav_menu_object((int) $menu_id);
+
+        return $menu ?: false;
+    }
+
+    public static function get_footer_settings() {
+        return [
+            'col1' => [
+                'title' => carbon_get_theme_option('yp_footer_col1_title'),
+                'image' => carbon_get_theme_option('yp_footer_col1_image'),
+            ],
+            'col2' => [
+                'title' => carbon_get_theme_option('yp_footer_col2_title'),
+                'menu_id' => carbon_get_theme_option('yp_footer_col2_menu'),
+            ],
+            'col3' => [
+                'title' => carbon_get_theme_option('yp_footer_col_3_title'),
+                'menu_id' => carbon_get_theme_option('yp_footer_col_3_menu'),
+            ],
+            'col4' => [
+                'title' => carbon_get_theme_option('yp_footer_col_4_title'),
+                'contact_info' => carbon_get_theme_option('yp_footer_col_4_contact_info'), // This returns an array from complex field
+            ],
+           'copyrights' => [
+                'text' => '© ' . date('Y') . ' ' . get_bloginfo('name') . ', ' . carbon_get_theme_option('yp_copy_rights'),
+            ],
+
+
+        ];
+    }
+
+    public static function get_menu_term($menu_id){
+
+         if (!$menu_id) {
+            return false; // No menu selected
+        }
+
+        $menu = wp_get_nav_menu_object((int) $menu_id);
+
+        return $menu ?: false;
+    }
+
 
 
 }

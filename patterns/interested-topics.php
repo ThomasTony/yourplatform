@@ -21,7 +21,7 @@ if ($categories && is_array($categories)) :
       <div class="wp-block-column interested_stories_section_block_column ">
         <div class="image-caption-wrapper">
           <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
-            <img src="<?php echo esc_url(get_field('image', 'category_' . $category->term_id)); ?>"" alt="<?php echo esc_attr($category->name); ?>" />
+            <img src="<?php echo esc_url(get_field('image', 'category_' . $category->term_id)); ?>" alt="<?php echo esc_attr($category->name); ?>" />
           </a>
           <!-- wp:paragraph {"className":"promo-category-label image_caption"} -->
           <p class="promo-category-label image_caption">
