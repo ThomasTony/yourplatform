@@ -7,4 +7,4 @@ require_once get_template_directory() . '/inc/ThemeOptions.php';
 // Initialize singleton instance
 ThemeSetup::instance();
 ThemeOptions::instance();
-ThemeAssets::get_instance();
+ThemeAssets::instance();

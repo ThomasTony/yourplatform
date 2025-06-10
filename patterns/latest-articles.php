@@ -4,22 +4,27 @@
  * Slug: yourplatform/latest-articles
  * Categories: featured, posts, yourplatform
  */
+
+ $latest_articles = get_field('latest_articles');
+
 ?>
 
-
-<div class="wp-block-group container section-padding latest-articles">
+<div class="wp-block-group container py-80 latest-articles">
 	<div class="d-flex flex-column flex-nowrap align-items-center gap-40">
-		<h5 class="wp-block-heading section_title">Latest Articles</h5>
+		<h5 class="wp-block-heading section_title"><?php echo esc_html($latest_articles['title']); ?></h5>
 
 		<div class="wp-block-query post_content w-100 post_list_container">
 			<?php
+
 			$latest_posts = new WP_Query([
-				'posts_per_page' => 5,
-				'post_type'      => 'post',
+				'posts_per_page' => $latest_articles['number_of_post'],
+				'category__in'   => $latest_articles['category'], 
 				'post_status'    => 'publish',
+				'post_type'      => 'post',
 				'orderby'        => 'date',
 				'order'          => 'DESC',
 			]);
+			
 
 			if ($latest_posts->have_posts()) :
 				while ($latest_posts->have_posts()) : $latest_posts->the_post(); ?>

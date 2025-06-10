@@ -36,9 +36,9 @@ if ($topBar_content) {
   </div>
 </nav>
 
-<div class="topbar_image d-flex flex-row justify-content-center align-items-center" style=" background: url('<?php echo $topBar_content['image'] ?>') center / cover no-repeat !important;">
+<a class="topbar_image d-flex flex-row justify-content-center align-items-center" href="<?php echo $topBar_content['link'] ?>" target="_blank" style=" background: url('<?php echo $topBar_content['image'] ?>') center / cover no-repeat !important;">
     <h3><?php echo $topBar_content['caption'] ?></h3>
-</div>
+</a>
 <!-- /wp:html -->
 <?php
 

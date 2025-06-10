@@ -28,6 +28,7 @@ Requires at least: 5.9
 
 /* Utility Classes */
 .gap-10 { gap: 10px !important; }
+.gap-15 { gap: 15px !important; }
 .gap-20 { gap: 20px !important; }
 .gap-30 { gap: 30px !important; }
 .gap-40 { gap: 40px !important; }
@@ -35,7 +36,7 @@ Requires at least: 5.9
 /* Base Reset */
 
 * {
-    margin: 0 auto;
+    margin: 0 ;
     padding: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -47,6 +48,11 @@ li { list-style-type: none; }
 
 a{
     text-decoration: none !important;
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
 }
 
 .button{
