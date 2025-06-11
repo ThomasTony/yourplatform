@@ -30,11 +30,11 @@ if ($latest_posts->have_posts()) :
         ?>
         <div class="swiper-slide">
           <div class="slide-content d-flex flex-row flex-nowrap align-items-center"
-               style="height: 500px; background-image: url('<?php echo esc_url($background_image); ?>'); background-size: cover; background-position: center;">
+               style="background-image: url('<?php echo esc_url($background_image); ?>'); background-size: cover; background-position: center;">
             <div class="slider_info d-flex flex-column flex-nowrap align-items-start">
               <h2 class="m-0"><?php echo esc_html($title); ?></h2>
               <p><?php echo esc_html($excerpt); ?></p>
-              <a class="m-0" href="<?php echo esc_url($permalink); ?>" class="button">Read More</a>
+              <a class="m-0 slider_btn" href="<?php echo esc_url($permalink); ?>" class="button">Read More</a>
             </div>
           </div>
         </div>
@@ -45,8 +45,7 @@ if ($latest_posts->have_posts()) :
     <div class="swiper-pagination heroPagination d-flex flex-column flex-nowrap align-items-end gap-10"></div>
   </div>
 
-  <div class="swiper_bottom_bar d-flex flex-nowrap justify-content-center align-items-center"
-       style="height: 100px; background-image: linear-gradient(to right, #8224e3, #31d8cd);">
+  <div class="swiper_bottom_bar d-flex flex-nowrap justify-content-center align-items-center">
     <h3>
       <a href="<?php echo esc_url($hero_slider_cat['bottom_bar']['link']); ?>" target="_blank">
         <?php echo esc_html(ucfirst($hero_slider_cat['bottom_bar']['caption'])); ?>

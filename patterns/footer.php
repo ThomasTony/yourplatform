@@ -17,7 +17,7 @@ $footer = ThemeOptions::get_footer_settings();
   <div class="wp-block-group container">
 
     <!-- wp:columns -->
-    <div class="wp-block-columns">
+    <div class="wp-block-columns footer__widget">
 
       <!-- wp:column -->
       <div class="wp-block-column">

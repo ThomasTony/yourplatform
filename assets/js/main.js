@@ -22,6 +22,21 @@ jQuery(document).ready(function ($) {
             delay: 3000,
             disableOnInteraction: false,
         },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 25,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        },
+        
     });
 
 });
