@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="wp-block-group container py-80 latest-articles">
+<div class="wp-block-group container latest-articles">
 	<div class="d-flex flex-column flex-nowrap align-items-center gap-40">
 		<h5 class="wp-block-heading section_title"><?php echo esc_html($latest_articles['title']); ?></h5>
 

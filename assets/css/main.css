@@ -1,4 +1,6 @@
-
+/*
+  Theme Main Style Sheet
+*/
 /*------------------------------
   Common Styles
 ------------------------------*/
@@ -42,16 +44,17 @@ h1, h2, h3, h4, h5, h6, blockquote, .post-title, .site-branding .site-title, .sl
 }
 
 .topbar .navbar-nav ul li a::before,
-ul.side_bar_social_links li.sidebar_social_li a::before {
+ul.side_bar_social_links li.sidebar_social_li a::before,
+.mobile_nav_social_links ul li a::before {
   font-family: "Font Awesome 6 Brands";
   font-weight: 500; 
   font-size: 14px;
 }
 
-.topbar .navbar-nav ul li a.facebook::before, ul.side_bar_social_links li.sidebar_social_li a.facebook::before { content: "\f082"; }
-.topbar .navbar-nav ul li a.instagram::before, ul.side_bar_social_links li.sidebar_social_li a.instagram::before { content: "\f16d"; }
-.topbar .navbar-nav ul li a.youtube::before, ul.side_bar_social_links li.sidebar_social_li a.youtube::before { content: "\f167"; }
-.topbar .navbar-nav ul li a.linkedin::before, ul.side_bar_social_links li.sidebar_social_li a.linkedin::before { content: "\f08c"; }
+.topbar .navbar-nav ul li a.facebook::before, ul.side_bar_social_links li.sidebar_social_li a.facebook::before, .mobile_nav_social_links ul li a.facebook::before { content: "\f082"; }
+.topbar .navbar-nav ul li a.instagram::before, ul.side_bar_social_links li.sidebar_social_li a.instagram::before, .mobile_nav_social_links ul li a.instagram::before { content: "\f16d"; }
+.topbar .navbar-nav ul li a.youtube::before, ul.side_bar_social_links li.sidebar_social_li a.youtube::before, .mobile_nav_social_links ul li a.youtube::before { content: "\f167"; }
+.topbar .navbar-nav ul li a.linkedin::before, ul.side_bar_social_links li.sidebar_social_li a.linkedin::before, .mobile_nav_social_links ul li a.linkedin::before { content: "\f08c"; }
 
 .topbar_image {
   height: 200px;
@@ -68,15 +71,25 @@ ul.side_bar_social_links li.sidebar_social_li a::before {
   gap: 30px;
 }
 
+.offcanvas{
+  max-width: 80% !important;
+}
+
 /*------------------------------
   Hero Swiper Slider
 ------------------------------*/
 .hero-swiper {
   height: 500px;
+  position: relative;
 }
 
 .swiper-pagination.heroPagination {
-  top: 50%;
+  bottom: 50% !important;
+  left: auto !important;
+  right: 0;
+  z-index: 1;
+  pointer-events: auto;
+  width: auto !important;
 }
 
 span.swiper-pagination-bullet {
@@ -146,6 +159,7 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
   display: inline-block;
   text-decoration: none;
   background: var(--wp--preset--color--white);
+  color: var(--wp--preset--color--black);
   padding: 0 30px;
   line-height: 42px;
   border-radius: 30px;
@@ -164,6 +178,27 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
 }
 
 
+.swiper.hero-swiper .swiper-slide .slide-content{
+  height: 500px;
+  position: relative;
+  z-index: 2;
+}
+
+.swiper.hero-swiper .swiper-slide .slide-content .slider_info p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.swiper_bottom_bar{
+  height: 100px; 
+  background-image: linear-gradient(to right, #8224e3, #31d8cd);
+  padding: 2em;
+  color: #fff;
+}
+
 /*------------------------------
   Interested Topics
 ------------------------------*/
@@ -181,7 +216,12 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
 }
 
 .interested_stories__block_column_grid{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
     width: 100%;
+    gap: 30px;
+
 }
 
 .interested_stories_section_block_column{
@@ -249,7 +289,7 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
   Subscribe Form
 ------------------------------*/
 .subscribe-form{
-    padding: 80px 0;
+    /* padding: 80px 0; */
     position: relative;
 }
 

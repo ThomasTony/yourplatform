@@ -16,7 +16,7 @@ if ($topBar_content) {
 <!-- wp:html -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary topbar">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+    <div class="container d-flex flex-row justify-content-center" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <ul class="d-flex p-0 m-0 gap-30">
         <?php
@@ -24,7 +24,7 @@ if ($topBar_content) {
         ?>
             <li class="list-unstyled">
                 <a class="nav-link <?php echo $k; ?> d-flex align-items-center gap-10" href="<?php echo $links; ?>" target="_blank">
-                  <?php echo ucfirst($k); ?>
+                  <span class="d-none d-md-block"><?php echo ucfirst($k); ?></span>
                 </a>
             </li>
         <?php

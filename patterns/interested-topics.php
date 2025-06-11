@@ -16,7 +16,7 @@ if ($categories && is_array($categories)) :
 <div class="wp-block-group container interested_stories_section d-flex flex-column flex-nowrap align-items-center gap-40">
   <h5 class="wp-block-heading section_title"><?php echo esc_html($categories_list['title']); ?></h5>
 
-  <div class="wp-block-columns promo-block-grid interested_stories__block_column_grid d-flex flex-row flex-nowrap gap-30">
+  <div class="wp-block-columns promo-block-grid interested_stories__block_column_grid ">
     <?php foreach ($categories as $category):  ?>
       <div class="wp-block-column interested_stories_section_block_column ">
         <div class="image-caption-wrapper">

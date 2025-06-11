@@ -1,0 +1,57 @@
+/*
+  Theme Responsive Style Sheet
+*/
+/*------------------------------
+  Responsive Styles
+------------------------------*/
+@media(max-width:768px){
+    .newsletter-form p{
+        flex-direction: column !important;
+    }
+
+    .swiper.hero-swiper .swiper-slide .slide-content {
+        /* height: 300px; */
+        animation: none !important; 
+    }
+
+    .slide-content .slider_info{
+        margin-inline-start: 3em;
+        max-width: 70%;
+    }
+
+    .interested_stories__block_column_grid{
+        padding: 0 2.5em;
+    }
+   
+    .subscribe-form{
+        padding: 0 2.5rem;
+    }
+
+    .newsletter-form p{
+        gap: 0px !important;
+    }
+
+    .post_list_container article .featured-img a img{
+        width: 100% !important;
+    }
+
+    .post_list_container article .post-content{
+        position: relative !important;
+        width: 100% !important;
+    }
+
+    h5.footer_col_title{
+        margin-bottom: 1em;
+    }
+
+    ul.footer_nav_menu{
+        display: flex !important;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer__widget{
+        padding: 0 1rem;
+    }
+
+}
