@@ -53,25 +53,38 @@ jQuery(document).ready(function ($) {
 
         const sidebarFullyVisible = scrollY + viewportHeight >= scrollY + sidebarRect.bottom;
 
-        if (scrollY > sectionTop && scrollY < sectionBottom - sidebarHeight && sidebarFullyVisible) {
-            Object.assign(sidebar.style, {
-                position: 'fixed',
-                top: '30px',
-                bottom: 'auto',
-                width: '28%',
-                transform: 'translateY(0)',
-                opacity: '1',
-                zIndex: '99'
-            });
-        } else if (scrollY >= sectionBottom - sidebarHeight) {
-            Object.assign(sidebar.style, {
-                position: 'absolute',
-                top: 'auto',
-                bottom: '0',
-                width: '100%',
-                transform: 'translateY(0)',
-                opacity: '1'
-            });
+      const buffer = 5; // Small threshold to prevent flickering
+
+        if (
+            scrollY > sectionTop &&
+            scrollY < sectionBottom - sidebarHeight - buffer &&
+            sidebarFullyVisible
+        ) {
+            // Only update if necessary
+            if (sidebar.style.position !== 'fixed') {
+                Object.assign(sidebar.style, {
+                    position: 'fixed',
+                    top: '30px',
+                    bottom: 'auto',
+                    width: '28%',
+                    transform: 'translateY(0)',
+                    opacity: '1',
+                    zIndex: '99'
+                });
+            }
+        } else if (scrollY >= sectionBottom - sidebarHeight - buffer) {
+            // Only update if necessary
+            if (sidebar.style.position !== 'absolute') {
+                Object.assign(sidebar.style, {
+                    position: 'absolute',
+                    top: 'auto',
+                    bottom: '0',
+                    width: '100%',
+                    transform: 'translateY(0)',
+                    opacity: '1',
+                    zIndex: '1' // Optional: reduce z-index if necessary
+                });
+            }
         } else {
             Object.assign(sidebar.style, {
                 position: 'static',
