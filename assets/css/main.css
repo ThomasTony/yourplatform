@@ -351,7 +351,7 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
 
 .post_list_container article .post_container{
     position: relative;
-    height: 300px;
+    /* height: 300px; */
 }
 
 .post_list_container article .featured-img a img{
