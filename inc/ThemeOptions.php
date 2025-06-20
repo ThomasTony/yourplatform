@@ -148,8 +148,15 @@ class ThemeOptions {
             Field::make('image', 'yp_sidebar_row_1_image', 'Image')->set_value_type('url'),
         ])
         ->add_tab(__('Row 2 - Ad'), [
+            Field::make('separator', 'yp_sidebar_row_2_p1', 'Place 1'),
             Field::make('image', 'yp_sidebar_row_2_image', 'Image')->set_value_type('url'),
             Field::make('text', 'yp_sidebar_row_2_url', 'Ad Link / URL'),
+            Field::make('separator', 'yp_sidebar_row_2_p2', 'Place 2'),
+            Field::make('image', 'yp_sidebar_row_2_p2_image', 'Image')->set_value_type('url'),
+            Field::make('text', 'yp_sidebar_row_2_p2_url', 'Ad Link / URL'),
+            Field::make('separator', 'yp_sidebar_row_2_p3', 'Place 3'),
+            Field::make('image', 'yp_sidebar_row_2_p3_image', 'Image')->set_value_type('url'),
+            Field::make('text', 'yp_sidebar_row_2_p3_url', 'Ad Link / URL'),
         ])
         ->add_tab(__('Row 3'), [
             Field::make('text', 'yp_sidebar_row_3_title', 'Title'),
@@ -223,6 +230,10 @@ class ThemeOptions {
         $data['row2'] = [
             'image' => carbon_get_theme_option('yp_sidebar_row_2_image'),
             'url'   => carbon_get_theme_option('yp_sidebar_row_2_url'),
+            'p2_image' => carbon_get_theme_option('yp_sidebar_row_2_p2_image'),
+            'p2_url'   => carbon_get_theme_option('yp_sidebar_row_2_p2_url'),
+            'p3_image' => carbon_get_theme_option('yp_sidebar_row_2_p3_image'),
+            'p3_url'   => carbon_get_theme_option('yp_sidebar_row_2_p3_url'),
         ];
 
         // Row 3

@@ -11,7 +11,7 @@
 ?>
 <!-- wp:group -->
   <!-- wp:html -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top site-header">
   <div class="container">
     
     <!-- Site logo -->
@@ -25,7 +25,7 @@
     </button>
 
     <!-- Desktop menu -->
-    <div class="collapse navbar-collapse justify-content-around d-none d-lg-flex">
+    <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
       <?php
         if ($menu instanceof WP_Term) {
             wp_nav_menu([
@@ -39,12 +39,12 @@
             ]);
         }
       ?>
-      <span class="navbar-text">
+      <!-- <span class="navbar-text">
         <ul class="d-flex align-items-center gap-20">
           <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
           <li><a href="#"><i class="fa-brands fa-searchengin"></i></a></li>
         </ul>
-      </span>
+      </span> -->
     </div>
 
     <!-- Offcanvas menu for mobile -->

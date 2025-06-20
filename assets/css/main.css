@@ -75,6 +75,27 @@ ul.side_bar_social_links li.sidebar_social_li a::before,
   max-width: 80% !important;
 }
 
+.navbar{
+  height: 70px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 30px;
+  transition: all 0.3s ease;
+}
+
+
 /*------------------------------
   Hero Swiper Slider
 ------------------------------*/
@@ -323,13 +344,20 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
 }
 
 .post_list_container article{
+    margin-bottom: calc(100% - 80%);
+    max-height: 500px;
+    height: 100%;
+}
+
+.post_list_container article .post_container{
     position: relative;
-    margin-bottom: calc(100% - 85%);
+    height: 300px;
 }
 
 .post_list_container article .featured-img a img{
     width: 75%;
-    height: 300px;
+    /* height: 300px; */
+    height: 400px;
     object-fit: cover;
 }
 
@@ -505,6 +533,7 @@ span.swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
       border: 2px solid #000;
    }
 
+   
 /*------------------------------
   Popular Destinations
 ------------------------------*/
@@ -564,8 +593,40 @@ h5.footer_col_title{
     font-family: var(--body-font);
 }
 
-ul.footer_nav_menu  li a{
+ul.footer_nav_menu li {
+  position: relative;
+}
+
+ul.footer_nav_menu li a{
   opacity: .75;
+  transition: all .5s ease;
+  position: relative;
+}
+
+ul.footer_nav_menu li a:hover{
+  opacity: 1;
+  font-weight: 600;
+  margin-inline-start: 15px;
+  transition: all .3s ease;
+}
+
+ul.footer_nav_menu li a::before {
+    content: "";
+    position: absolute;
+    left: -15px; 
+    bottom: 0;
+    height: 100%;
+    width: 3px;
+    background: #fff;
+}
+
+ul.footer_nav_menu li a::before {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+ul.footer_nav_menu li a:hover::before {
+  opacity: 1;
 }
 
 /*------------------------------
@@ -735,4 +796,30 @@ h1.single-page-hero-title{
     text-align: center;
     transition: 0.4s;
 
+}
+
+
+.page-numbers{
+     padding: 10px;
+    border-radius: 999px;
+    line-height: 5px;
+    text-align: center;
+    letter-spacing: 0;
+    background: #886ac3;
+    color: #fff;
+}
+
+.latest_art_sidebar_sec {
+  display: flex;
+  position: relative;
+}
+
+.sidebar_section{
+  position: relative;
+}
+
+.side_bar_content {
+  transition: top 0.3s ease, position 0.3s ease;
+  /* optional for smoother layout: */
+  will-change: top, position;
 }

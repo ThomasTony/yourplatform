@@ -55,7 +55,7 @@ $footer = ThemeOptions::get_footer_settings();
             'fallback_cb' => false,
             'echo'       => true,
             'depth'      => 0,
-            'items_wrap' => '<ul id="%1$s" class="%2$s" style="display: block; flex-direction: column;">%3$s</ul>',
+            'items_wrap' => '<ul id="%1$s" class="%2$s" style="display: flex; flex-direction: column; gap:8px">%3$s</ul>',
           ]);
         } else {
           echo '<!-- Footer menu not found -->';
@@ -84,8 +84,8 @@ $footer = ThemeOptions::get_footer_settings();
             'container'  => false,
             'fallback_cb' => false,
             'echo'       => true,
-            'depth'      => 0,
-            'items_wrap' => '<ul id="%1$s" class="%2$s" style="display: block; flex-direction: column;">%3$s</ul>',
+            'depth'      => 1,
+            'items_wrap' => '<ul id="%1$s" class="%2$s" style="display: flex; flex-direction: column; gap:8px">%3$s</ul>',
           ]);
         } else {
           echo '<!-- Footer menu not found -->';

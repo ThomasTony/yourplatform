@@ -12,7 +12,7 @@ $get_sidebar_widgets_info = ThemeOptions::get_sidebar_widgets_info();
 
 ?>
 <!-- wp:group {"className":"sidebar","layout":{"type":"default"}} -->
-<div class="wp-block-group d-flex flex-column flex-nowrap gap-30">
+<div class="wp-block-group d-flex flex-column flex-nowrap gap-30 side_bar_content sticky-bottom">
 
   <!-- wp:group {"layout":{"type":"constrained"}} -->
   <div class="wp-block-group">
@@ -123,6 +123,18 @@ $get_sidebar_widgets_info = ThemeOptions::get_sidebar_widgets_info();
   ?>
 
 
+  <!-- wp:group {"layout":{"type":"constrained"}} -->
+  <div class="wp-block-group">
+    <!-- wp:image {"linkDestination":"custom","href":"<?php echo esc_url($get_sidebar_widgets_info['row2']['url']); ?>"} -->
+    <figure class="wp-block-image side_bar_ad_image_1">
+      <a href="<?php echo esc_url($get_sidebar_widgets_info['row2']['p2_url']); ?>">
+        <img src="<?php echo esc_url($get_sidebar_widgets_info['row2']['p2_image']); ?>" alt="ad-square-2" height="200" style="height:100px"/>
+      </a>
+    </figure>
+    <!-- /wp:image -->
+  </div>
+  <!-- /wp:group -->
+
   <!-- Hot Destinations -->
   <?php
   if (
@@ -178,6 +190,19 @@ $get_sidebar_widgets_info = ThemeOptions::get_sidebar_widgets_info();
       }
   }
   ?>
+
+
+  <!-- wp:group {"layout":{"type":"constrained"}} -->
+  <div class="wp-block-group">
+    <!-- wp:image {"linkDestination":"custom","href":"<?php echo esc_url($get_sidebar_widgets_info['row2']['url']); ?>"} -->
+    <figure class="wp-block-image side_bar_ad_image_1">
+      <a href="<?php echo esc_url($get_sidebar_widgets_info['row2']['p3_url']); ?>">
+        <img src="<?php echo esc_url($get_sidebar_widgets_info['row2']['p3_image']); ?>" alt="ad-square-2" height="200" style="height:100px"/>
+      </a>
+    </figure>
+    <!-- /wp:image -->
+  </div>
+  <!-- /wp:group -->
 
   <!-- News Letter Form -->
   <!-- wp:group {"layout":{"type":"constrained"}} -->
