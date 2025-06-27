@@ -43,6 +43,10 @@ Requires at least: 5.9
     word-wrap: break-word;
 }
 
+body {
+    overflow-x: hidden; /* prevent horizontal scrolling globally */
+}
+
 ul { margin: 0; padding: 0; }
 li { list-style-type: none; }
 

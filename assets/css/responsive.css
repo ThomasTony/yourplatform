@@ -31,6 +31,10 @@
         gap: 0px !important;
     }
 
+    .post_list_container article{
+        max-height: inherit !important;
+    }
+
     .post_list_container article .featured-img a img{
         width: 100% !important;
     }
